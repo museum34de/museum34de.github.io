@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CS1.6中文版单机下载 - 提供经典反恐精英1.6完整离线安装包，包含人机对战、创意工坊地图及汉化补丁。支持XP/Win7/Win10系统，无需联网即可畅玩经典枪战体验。">
+    <meta name="keywords" content="CS1.6中文版单机下载,CS1.6,反恐精英1.6,单机游戏下载,CS1.6汉化版,CS1.6离线安装">
+    <title>CS1.6中文版单机下载-经典反恐精英离线安装与配置指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .download-box {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .file-size {
+            background: rgba(0,0,0,0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .main-download-btn {
+            background-color: white;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 40px;
+            border-radius: 50px;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .main-download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Game Modes Section */
+        .game-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .mode-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .mode-image {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .mode-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        .mode-content {
+            padding: 20px;
+        }
+
+        .mode-content h3 {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .mode-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Instructions */
+        .instructions {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+        }
+
+        .instructions h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content h4 {
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* System Requirements */
+        .requirements {
+            background: #eef2f5;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+        }
+
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .req-item h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .req-item ul li {
+            list-style: disc;
+            margin-left: 20px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-download-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">CS<span>1.6</span> 中文版</div>
+            <nav>
+                <ul>
+                    <li><a href="#download">下载</a></li>
+                    <li><a href="#features">特色</a></li>
+                    <li><a href="#modes">模式</a></li>
+                    <li><a href="#guide">安装教程</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="cta-btn">立即下载</a>
+        </div>
+    </header>
+
+    <section class="hero" id="download">
+        <div class="hero-content">
+            <h1>重温经典反恐精英 1.6</h1>
+            <p>无需联网，单机畅玩。包含完整中文汉化、人机对战系统及大量创意地图。</p>
+            
+            <div class="download-box">
+                <div class="file-info">
+                    <span>CS 1.6 完整离线版</span>
+                    <span class="file-size">约 850 MB</span>
+                </div>
+                <button class="main-download-btn" onclick="alert('模拟下载：点击开始下载反恐精英1.6单机中文版安装包。')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    开始下载
+                </button>
+                <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.8;">支持 Win10 / Win7 / XP 系统</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="section-title">
+            <h2>为什么选择 CS1.6 单机版？</h2>
+            <p>无需Steam验证，离线即可体验原汁原味的战术射击乐趣</p>
+        </section>
+
+        <div class="features-grid">
+            <article class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>完全离线运行</h3>
+                <p>无需联网验证，下载后即可永久离线游玩，彻底告别卡顿和服务器维护问题。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🇨🇳</span>
+                <h3>完整中文汉化</h3>
+                <p>内置专业汉化补丁，菜单、提示、语音全部中文化，无语言障碍，上手更轻松。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>智能人机对战</h3>
+                <p>内置多种难度的人机AI，支持Bot阵营切换，适合单人练习枪法或休闲娱乐。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🗺️</span>
+                <h3>海量创意地图</h3>
+                <p>预装经典爆破、死斗地图，支持加载第三方创意工坊地图，玩法无限扩展。</p>
+            </article>
+        </div>
+
+        <section class="section-title">
+            <h2>游戏核心玩法</h2>
+            <p>经典的战术博弈，团队配合与个人技术的完美结合</p>
+        </section>
+
+        <div class="game-modes">
+            <article class="mode-card">
+                <div class="mode-image" style="background: linear-gradient(to right, #4b6cb7, #182848);">
+                    <h3 style="position: absolute; bottom: 20px; left: 20px; color: white;">爆破模式 (DE)</h3>
+                </div>
+                <div class="mode-content">
+                    <h3>拆弹 vs 防守</h3>
+                    <p>恐怖分子需在倒计时结束前安装C4炸弹并引爆，反恐精英需阻止或拆除炸弹。考验团队防守与突围策略。</p>
+                </div>
+            </article>
+            <article class="mode-card">
+                <div class="mode-image" style="background: linear-gradient(to right, #11998e, #38ef7d);">
+                    <h3 style="position: absolute; bottom: 20px; left: 20px; color: white;">死斗模式 (DM)</h3>
+                </div>
+                <div class="mode-content">
+                    <h3>无限弹药乱斗</h3>
+                    <p>地图中随机刷新弹药和武器，玩家死亡后立即复活。适合快速练习枪法和反应速度，节奏紧张刺激。</p>
+                </div>
+            </article>
+            <article class="mode-card">
+                <div class="mode-image" style="background: linear-gradient(to right, #8E2DE2, #4A00E0);">
+                    <h3 style="position: absolute; bottom: 20px; left: 20px; color: white;">人质救援 (AS)</h3>
+                </div>
+                <div class="mode-content">
+                    <h3>营救人质</h3>
+                    <p>反恐精英需从恐怖分子手中救出被扣押的人质并护送至安全区。强调保护目标与战术救援。</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="instructions" id="guide">
+            <h2>CS1.6 单机版安装指南</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>下载安装包</h4>
+                        <p>点击上方“开始下载”按钮，获取包含游戏核心文件的压缩包（约850MB）。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>解压文件</h4>
+                        <p>使用 WinRAR 或 7-Zip 将下载的压缩包解压到任意非中文路径的文件夹中（例如：D:\Games\CS1.6）。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>运行游戏</h4>
+                        <p>解压完成后，双击文件夹内的 `HL.exe` 或 `cs16.exe` 启动游戏。首次运行会自动加载资源。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>配置游戏</h4>
+                        <p>进入游戏后，在控制台输入 `sv_cheats 1` 开启作弊模式，或设置 Bot 数量开始人机对战。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="requirements">
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">系统配置要求</h2>
+            <div class="req-grid">
+                <div class="req-item">
+                    <h4>最低配置</h4>
+                    <ul>
+                        <li>CPU: P3 500MHz 或同等性能处理器</li>
+                        <li>内存: 128MB RAM</li>
+                        <li>显卡: 支持 DirectX 7.0 的显卡</li>
+                        <li>硬盘: 1.5GB 可用空间</li>
+                    </ul>
+                </div>
+                <div class="req-item">
+                    <h4>推荐配置</h4>
+                    <ul>
+                        <li>CPU: Intel Core 2 Duo / AMD 同等性能</li>
+                        <li>内存: 512MB RAM</li>
+                        <li>显卡: NVIDIA GeForce 8600 GT 或更高</li>
+                        <li>硬盘: 2GB 可用空间</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary-color);">常见问题 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">CS1.6 单机版支持多人联机吗？</div>
+                <div class="faq-answer">
+                    本下载包主要包含单机离线版本。如需多人联机，需拥有原始Steam版本的CD-KEY并配合SteamPipe更新器进行配置。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">游戏声音正常但画面全黑怎么办？</div>
+                <div class="faq-answer">
+                    请尝试在游戏快捷方式的目标栏末尾添加 `-console` 参数，然后在游戏内按 `~` 键打开控制台，输入 `vid_restart` 重置显示模式。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何增加电脑人机的难度？</div>
+                <div class="faq-answer">
+                    进入游戏后，点击“开始游戏”，在玩家列表设置中，将Bot难度调整为“困难”或“专家”，并开启“射击技巧”选项。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">游戏无法启动或报错怎么办？</div>
+                <div class="faq-answer">
+                    请确保您的操作系统为 Windows XP / 7 / 8 / 10 / 11。如果使用 Windows 10/11，建议以兼容模式运行游戏。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 CS1.6 中文版</h4>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">
+                    本站提供经典反恐精英1.6的离线单机资源整理与分享，致力于让玩家在无需联网的情况下重温经典战术射击游戏的魅力。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#download">最新下载</a></li>
+                    <li><a href="#guide">安装教程</a></li>
+                    <li><a href="#modes">游戏地图</a></li>
+                    <li><a href="#">创意工坊地图</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>游戏术语</h4>
+                <ul>
+                    <li><a href="#">AWP (反器材步枪)</a></li>
+                    <li><a href="#">Deagle (沙漠之鹰)</a></li>
+                    <li><a href="#">Rush B (进攻B点)</a></li>
+                    <li><a href="#">CT (反恐精英)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 CS1.6 中文版单机下载站. 仅供学习交流使用，请支持正版游戏。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
