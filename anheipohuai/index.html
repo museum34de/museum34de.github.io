@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="暗黑破坏神装备百科 - 提供暗黑破坏神2、暗黑破坏神3及暗黑4全版本装备数据库、词缀解析、BD构建指南及毕业装备推荐。">
+    <meta name="keywords" content="暗黑破坏神装备, 暗黑破坏神, 2代, 3代, 4代, 装备图鉴, BD, 词缀">
+    <title>暗黑破坏神装备-全版本装备图鉴与BD构建指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-gold: #cfaa6e;
+            --accent-red: #b91c1c;
+            --accent-blue: #2563eb;
+            --border-color: #333;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-gold);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            font-weight: 400;
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .search-bar {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, var(--bg-color) 100%), 
+                        url('https://picsum.photos/seed/diablo/1920/600') no-repeat center center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .search-input-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-right: 50px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-gold);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            padding: 0 15px;
+            background-color: var(--accent-gold);
+            border: none;
+            border-radius: 4px;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: #d4b57a;
+        }
+
+        /* Filter Tabs */
+        .filter-section {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+        }
+
+        /* Equipment Grid */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            padding-top: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: var(--accent-gold);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #2a2a2a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .card:hover .card-img img {
+            opacity: 1;
+        }
+
+        .card-type {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-stats {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .stat-val {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .stat-val.rare {
+            color: #9b59b6;
+        }
+
+        .stat-val.legendary {
+            color: var(--accent-gold);
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-level {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .item-rarity {
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .rarity-legendary { color: var(--accent-gold); }
+        .rarity-rare { color: #9b59b6; }
+        .rarity-set { color: #e67e22; }
+
+        /* Info Section */
+        .info-section {
+            background-color: #151515;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .info-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .info-col p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .guide-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .guide-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .search-bar {
+                display: block;
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .info-grid { grid-template-columns: 1fr; }
+            nav { display: none; } /* Simplified mobile nav */
+            .header-inner { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>D2/3/4</span> 装备图鉴
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">暗黑2</a></li>
+                    <li><a href="#">暗黑3</a></li>
+                    <li><a href="#">暗黑4</a></li>
+                    <li><a href="#">BD构建</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索装备名称、词缀..." class="search-input" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #333; background: #222; color: #fff;">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>暗黑破坏神装备</h1>
+            <p>全版本装备数据库，精准词缀解析，助您打造毕业Build。</p>
+            <div class="search-input-wrapper">
+                <input type="text" placeholder="输入装备名称，如 '安达利尔之伤'..." class="search-input">
+                <button class="search-btn">搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="filter-section">
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">武器</button>
+            <button class="filter-btn">防具</button>
+            <button class="filter-btn">首饰</button>
+            <button class="filter-btn">暗金</button>
+            <button class="filter-btn">套装</button>
+            <button class="filter-btn">符文之语</button>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- Section: Hot Items -->
+        <section class="section-header">
+            <div class="section-title">
+                <h2>热门装备推荐</h2>
+                <p>当前版本下最受玩家关注与使用的强力装备</p>
+            </div>
+            <a href="#" class="view-all">查看更多 →</a>
+        </section>
+
+        <section class="grid">
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-type">Legendary</span>
+                    <img src="https://picsum.photos/seed/weapon1/400/300" alt="安达利尔之伤">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">安达利尔之伤</h3>
+                    <div class="card-stats">
+                        <div class="stat-row">
+                            <span>武器类型:</span>
+                            <span class="stat-val">双手巨剑</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>需求力量:</span>
+                            <span class="stat-val">191</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="item-level">等级需求: 91</span>
+                        <span class="item-rarity rarity-legendary">暗金</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-type">Set</span>
+                    <img src="https://picsum.photos/seed/armor1/400/300" alt="马拉纳克">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">马拉纳克</h3>
+                    <div class="card-stats">
+                        <div class="stat-row">
+                            <span>防具类型:</span>
+                            <span class="stat-val">头部护甲</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>套装名称:</span>
+                            <span class="stat-val">艾德鲁因套装</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="item-level">等级需求: 83</span>
+                        <span class="item-rarity rarity-set">套装</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-type">Unique</span>
+                    <img src="https://picsum.photos/seed/jewel1/400/300" alt="乔丹之石">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">乔丹之石</h3>
+                    <div class="card-stats">
+                        <div class="stat-row">
+                            <span>首饰类型:</span>
+                            <span class="stat-val">力量之戒</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>功能效果:</span>
+                            <span class="stat-val">增加属性与回蓝</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="item-level">等级需求: 99</span>
+                        <span class="item-rarity rarity-legendary">暗金</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-type">Runeword</span>
+                    <img src="https://picsum.photos/seed/shield1/400/300" alt="刚毅">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">刚毅</h3>
+                    <div class="card-stats">
+                        <div class="stat-row">
+                            <span>盾牌类型:</span>
+                            <span class="stat-val">塔盾</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>符文组合:</span>
+                            <span class="stat-val">7个卢恩</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="item-level">等级需求: 99</span>
+                        <span class="item-rarity rarity-legendary">符文之语</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Section: Database & Info -->
+        <section class="info-section">
+            <div class="container info-grid">
+                <div class="info-col">
+                    <h3>装备数据库指南</h3>
+                    <p>无论是暗黑2的符文之语，还是暗黑4的套装效果，正确理解装备属性是构建强力Build的基础。我们的数据库提供详细的词缀解析、需求等级以及在不同游戏版本中的强度评级。</p>
+                    <p>在这里您可以找到从新手过渡到毕业级装备的完整路径，了解哪些属性是核心，哪些是垃圾属性。</p>
+                    <ul class="guide-list">
+                        <li>按职业分类装备筛选</li>
+                        <li>查看装备掉落机制与位置</li>
+                        <li>装备强化与附魔指南</li>
+                        <li>装备交易与市场价格参考</li>
+                    </ul>
+                </div>
+                <div class="info-col">
+                    <h3>常见问题 (FAQ)</h3>
+                    <p><strong>Q: 暗黑破坏神装备的稀有度如何划分？</strong><br>A: 通常分为普通、魔法（蓝）、稀有（紫）、暗金（金）和套装。在暗黑4中，还包括传奇和独特装备。</p>
+                    <p><strong>Q: 如何快速找到适合我的装备？</strong><br>A: 请先确定您的职业定位（如亚马逊、法师、野蛮人），然后在筛选器中选择职业和主要属性需求，查看推荐列表。</p>
+                    <p><strong>Q: 符文之语在哪里制作？</strong><br>A: 符文之语通常需要在暗黑2的赫拉迪克方块中进行合成，或通过特定的NPC对话获取。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p>专注于暗黑破坏神系列游戏的装备资料整理与分享，为玩家提供最准确的数据库支持。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">暗黑2攻略</a></li>
+                    <li><a href="#">暗黑3数据库</a></li>
+                    <li><a href="#">暗黑4词条查询</a></li>
+                    <li><a href="#">装备交易论坛</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>社区支持</h4>
+                <ul>
+                    <li><a href="#">加入Discord</a></li>
+                    <li><a href="#">提交装备纠错</a></li>
+                    <li><a href="#">赞助支持</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 暗黑装备图鉴. All Rights Reserved. 本站内容仅供玩家参考，与暴雪娱乐无关。
+        </div>
+    </footer>
+
+</body>
+</html>
