@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="芒果系统软件官方下载中心，提供高效、安全、稳定的个人及企业级系统管理解决方案。包含软件介绍、功能详解、版本更新及用户服务指南。">
+    <meta name="keywords" content="芒果系统软件,系统管理软件,办公自动化,数据安全,系统优化">
+    <title>芒果系统软件 - 高效办公与系统管理解决方案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6600; /* 芒果橙 */
+            --primary-hover: #e65c00;
+            --secondary-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff5eb 0%, #ffffff 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 102, 0, 0.05);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 102, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background-color: #fff;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        .comparison-table td.feature-highlight {
+            background-color: rgba(255, 102, 0, 0.05);
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        /* App Showcase */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            background-color: #eee;
+            border-radius: var(--border-radius);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Simulated UI */
+        .ui-mockup {
+            background: white;
+            width: 90%;
+            height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .ui-header { height: 20px; background: #f0f0f0; border-radius: 4px; width: 60%; }
+        .ui-row { height: 12px; background: #f0f0f0; border-radius: 4px; }
+        .ui-row.short { width: 40%; }
+        .ui-row.wide { width: 90%; }
+        .ui-chart { flex: 1; background: #fff5eb; border-radius: 8px; display: flex; align-items: flex-end; justify-content: space-around; padding-bottom: 10px; }
+        .ui-bar { width: 20%; background: var(--primary-color); border-radius: 4px 4px 0 0; opacity: 0.8; }
+
+        .showcase-content h2 {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .showcase-content ul {
+            margin-bottom: 30px;
+        }
+
+        .showcase-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+        }
+
+        .check-icon {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f4f6f8;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .showcase-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                🍊 芒果系统<span>软件</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#features">核心功能</a>
+                <a href="#comparison">版本对比</a>
+                <a href="#download">下载中心</a>
+                <a href="#support">帮助支持</a>
+            </nav>
+            <a href="#download" class="btn-download">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>一站式企业级<br><span>系统管理解决方案</span></h1>
+                <p>芒果系统软件采用最新云架构设计，为企业提供高效的数据处理、流程自动化及安全监控服务。简单易用，功能强大，助您业务极速增长。</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        免费试用版
+                    </a>
+                    <a href="#features" class="btn-outline">查看演示</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择芒果系统软件</h2>
+                    <p>专为现代业务场景打造，融合了效率与安全的核心特性</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速数据处理</h3>
+                        <p>基于分布式计算引擎，支持千万级数据秒级响应，让您的业务决策不再等待。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>全方位安全防护</h3>
+                        <p>内置银行级加密技术，多重身份验证机制，确保您的企业核心资产绝对安全。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>自动化工作流</h3>
+                        <p>告别繁琐的手工操作，通过可视化拖拽设计器，轻松实现跨部门业务自动化。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>智能数据报表</h3>
+                        <p>内置丰富报表模板，支持一键生成多维分析图表，数据洞察一目了然。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>多端同步支持</h3>
+                        <p>支持Windows、Mac、iOS及Android全平台访问，随时随地管理您的业务。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>开放API接口</h3>
+                        <p>提供标准RESTful API，轻松与您现有的ERP、CRM等第三方系统无缝集成。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="section" style="background-color: #fff;">
+            <div class="container showcase-grid">
+                <div class="showcase-image">
+                    <div class="ui-mockup">
+                        <div class="ui-header"></div>
+                        <div class="ui-row wide"></div>
+                        <div class="ui-row"></div>
+                        <div class="ui-row short"></div>
+                        <div class="ui-chart">
+                            <div class="ui-bar" style="height: 40%"></div>
+                            <div class="ui-bar" style="height: 70%"></div>
+                            <div class="ui-bar" style="height: 50%"></div>
+                            <div class="ui-bar" style="height: 90%"></div>
+                            <div class="ui-bar" style="height: 60%"></div>
+                        </div>
+                        <div class="ui-row wide" style="margin-top: 20px;"></div>
+                        <div class="ui-row"></div>
+                    </div>
+                </div>
+                <div class="showcase-content">
+                    <h2>直观的界面设计，<br>降低学习成本</h2>
+                    <p>芒果系统软件摒弃了传统软件复杂的后台代码，采用现代化的前端交互设计。无论是新员工入职，还是资深管理人员，都能在几分钟内上手操作。</p>
+                    <ul>
+                        <li><span class="check-icon">✓</span> 拖拽式操作，所见即所得</li>
+                        <li><span class="check-icon">✓</span> 智能快捷键，提升操作效率</li>
+                        <li><span class="check-icon">✓</span> 实时在线帮助文档与教程</li>
+                    </ul>
+                    <a href="#download" class="btn-primary">免费获取软件</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="section comparison-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>版本功能对比</h2>
+                    <p>灵活的定价方案，满足不同规模企业的需求</p>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>功能特性</th>
+                                <th>个人版 (免费)</th>
+                                <th>专业版 (¥299/年)</th>
+                                <th>企业版 (¥999/年)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>用户账号数量</td>
+                                <td>3个</td>
+                                <td>10个</td>
+                                <td>无限个</td>
+                            </tr>
+                            <tr>
+                                <td>数据存储空间</td>
+                                <td>10GB</td>
+                                <td>100GB</td>
+                                <td>无限制</td>
+                            </tr>
+                            <tr>
+                                <td>自动化工作流</td>
+                                <td>基础触发</td>
+                                <td>高级触发</td>
+                                <td>复杂逻辑编排</td>
+                            </tr>
+                            <tr>
+                                <td>API接口调用</td>
+                                <td>每月100次</td>
+                                <td>每月1000次</td>
+                                <td>无限制</td>
+                            </tr>
+                            <tr>
+                                <td>专属客户经理</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td class="feature-highlight">✓ 7x24小时支持</td>
+                            </tr>
+                            <tr>
+                                <td>数据加密备份</td>
+                                <td>✓</td>
+                                <td>✓</td>
+                                <td class="feature-highlight">✓ 异地灾备</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="support" class="section faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于芒果系统软件的安装、使用及售后问题</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">芒果系统软件支持哪些操作系统？</div>
+                        <div class="faq-answer">芒果系统软件支持主流的操作系统。Windows 10/11 和 macOS 10.14 及以上版本均可完美运行。移动端则支持 iOS 12+ 和 Android 8.0+ 的浏览器访问。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">数据安全如何保障？</div>
+                        <div class="faq-answer">我们采用 AES-256 硬件级加密技术存储数据，传输过程全程 SSL 加密。同时，企业版用户的数据会自动同步至多地数据中心进行异地备份，防止数据丢失。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">可以试用多久？</div>
+                        <div class="faq-answer">个人版永久免费，企业版提供14天的全功能免费试用，试用期间您可以体验所有高级功能，无任何限制。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果遇到问题，有技术支持吗？</div>
+                        <div class="faq-answer">是的，我们提供7x24小时的在线客服支持。专业版和企业版用户还可以通过工单系统提交详细的技术支持请求，通常会在2小时内响应。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px; color: white;">
+                    🍊 芒果系统<span>软件</span>
+                </div>
+                <p>致力于为企业提供最优质的数字化转型工具，让管理更简单，让数据更有价值。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品服务</h4>
+                <ul>
+                    <li><a href="#">功能介绍</a></li>
+                    <li><a href="#">版本更新</a></li>
+                    <li><a href="#">API文档</a></li>
+                    <li><a href="#">插件市场</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持中心</h4>
+                <ul>
+                    <li><a href="#">使用教程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>电话：400-123-4567</li>
+                    <li>邮箱：support@mangosoft.com</li>
+                    <li>地址：科技园区创新大道88号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 芒果系统软件有限公司 版权所有 | 隐私政策</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
