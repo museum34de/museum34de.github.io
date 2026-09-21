@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢乐喜剧人 大圣归来 - 经典喜剧与国漫IP互动专题</title>
+    <meta name="description" content="欢乐喜剧人大圣归来专题页，汇集《西游记之大圣归来》相关经典喜剧短片、幕后花絮、演员访谈及粉丝二创作品，探索电影与喜剧艺术的跨界融合。">
+    <meta name="keywords" content="欢乐喜剧人, 大圣归来, 西游记之大圣归来, 喜剧短片, 国漫, 喜剧人, 孙悟空">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-red: #D32F2F;
+            --primary-dark: #8E0000;
+            --accent-gold: #FFC107;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F5F5F5;
+            --bg-card: #FFFFFF;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-unit);
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c0000 0%, #5c0000 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/seed/sunwukong/1920/600'); /* Fallback visual */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Main Column */
+        .main-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card-title a:hover {
+            color: var(--primary-red);
+        }
+
+        .card-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 12px;
+            margin-bottom: 20px;
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: #666;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            margin-right: 12px;
+            font-weight: 700;
+        }
+
+        .rank-num.top-1 { background-color: var(--accent-gold); color: #000; }
+        .rank-num.top-2 { background-color: #e0e0e0; color: #000; }
+        .rank-num.top-3 { background-color: #d7ccc8; color: #000; }
+
+        .rank-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .rank-info span {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Topic Section */
+        .topic-section {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .topic-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .topic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .topic-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .topic-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .topic-overlay h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .topic-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background-color: var(--bg-body);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            font-weight: 400;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-content {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                欢乐喜剧人<span>大圣归来</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#topics">热门专题</a></li>
+                    <li><a href="#videos">经典视频</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>当喜剧遇上热血，重燃大圣归来</h1>
+            <p>深度解析《西游记之大圣归来》与《欢乐喜剧人》跨界合作背后的创意故事，回顾那些让你捧腹大笑又热泪盈眶的经典瞬间。</p>
+            <a href="#topics" class="btn btn-primary">探索专题</a>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        
+        <!-- Featured Articles -->
+        <section class="content-grid">
+            <div class="main-column">
+                <h2 class="section-title">最新内容</h2>
+                
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">深度解析</span>
+                        <img src="https://picsum.photos/seed/comedy1/800/400" alt="欢乐喜剧人大圣归来剧照">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">从《欢乐喜剧人》看大圣归来：喜剧如何解构经典IP</a></h3>
+                        <p class="card-excerpt">在近期热播的综艺节目中，喜剧演员们利用肢体语言和台词梗，对《西游记之大圣归来》中的角色进行了全新的诠释。本文将探讨这种“解构”手法如何让经典角色焕发新生，以及观众为何对此反响热烈。</p>
+                        <div class="card-meta">
+                            <span>2023-10-24</span>
+                            <span>阅读: 3,240</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">幕后花絮</span>
+                        <img src="https://picsum.photos/seed/comedy2/800/400" alt="喜剧人拍摄现场">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">欢乐喜剧人大圣归来特别企划：揭秘拍摄幕后</a></h3>
+                        <p class="card-excerpt">为了还原电影中震撼的特效场景，喜剧团队在片场经历了怎样的挑战？导演透露，他们在表演中加入了许多即兴发挥的元素，这种“打破第四面墙”的互动，成为了本期节目的最大亮点。</p>
+                        <div class="card-meta">
+                            <span>2023-10-20</span>
+                            <span>阅读: 5,102</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">影评</span>
+                        <img src="https://picsum.photos/seed/comedy3/800/400" alt="观众互动">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">大圣归来与喜剧的碰撞：是致敬还是恶搞？</a></h3>
+                        <p class="card-excerpt">关于本次跨界合作，网络上众说纷纭。支持者认为这是对经典动漫的一种普及方式，而反对者则担心过度娱乐化会消解原作的严肃性。我们采访了多位资深影迷，听听他们的真实看法。</p>
+                        <div class="card-meta">
+                            <span>2023-10-15</span>
+                            <span>阅读: 2,890</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="sidebar">
+                <!-- Ranking Widget -->
+                <div class="widget">
+                    <h3 class="widget-title">热门话题排行</h3>
+                    <ul class="ranking-list">
+                        <li>
+                            <span class="rank-num top-1">1</span>
+                            <div class="rank-info">
+                                <h4>大圣归来cosplay大赛</h4>
+                                <span>讨论量: 1.2w</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num top-2">2</span>
+                            <div class="rank-info">
+                                <h4>欢乐喜剧人大圣归来模仿秀</h4>
+                                <span>讨论量: 9.8k</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num top-3">3</span>
+                            <div class="rank-info">
+                                <h4>孙悟空形象演变史</h4>
+                                <span>讨论量: 8.5k</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <h4>国产动画复兴之路</h4>
+                                <span>讨论量: 7.2k</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <h4>周星驰与孙悟空的不解之缘</h4>
+                                <span>讨论量: 6.1k</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div class="widget" style="background: #e0e0e0; height: 250px; display: flex; align-items: center; justify-content: center; color: #666;">
+                    广告位
+                </div>
+            </aside>
+        </section>
+
+        <!-- Topic Gallery -->
+        <section id="topics" class="topic-section">
+            <h2 class="section-title">精选专题</h2>
+            <div class="topic-grid">
+                <div class="topic-item">
+                    <img src="https://picsum.photos/seed/topic1/300/400" alt="大圣归来">
+                    <div class="topic-overlay">
+                        <h3>电影原片回顾</h3>
+                        <p>重温2015年国漫之光</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <img src="https://picsum.photos/seed/topic2/300/400" alt="欢乐喜剧人">
+                    <div class="topic-overlay">
+                        <h3>综艺精彩瞬间</h3>
+                        <p>经典包袱与名场面</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <img src="https://picsum.photos/seed/topic3/300/400" alt="二次元">
+                    <div class="topic-overlay">
+                        <h3>同人创作</h3>
+                        <p>粉丝眼中的大圣归来</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <img src="https://picsum.photos/seed/topic4/300/400" alt="周边">
+                    <div class="topic-overlay">
+                        <h3>官方周边</h3>
+                        <p>收藏级大圣玩偶</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container faq-container">
+                <h2 class="section-title">常见问题</h2>
+                
+                <details open>
+                    <summary>欢乐喜剧人大圣归来是哪一期节目？</summary>
+                    <div class="faq-content">
+                        <p>该特别企划通常出现在《欢乐喜剧人》的周年庆特别节目或暑期档特别企划中，具体集数请关注官方发布的节目单。</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>如何获取大圣归来的高清资源？</summary>
+                    <div class="faq-content">
+                        <p>建议通过腾讯视频、爱奇艺、优酷等正规视频平台观看《西游记之大圣归来》正片。综艺相关片段通常也会在各大平台的官方账号上更新。</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>大圣归来的续集什么时候上映？</summary>
+                    <div class="faq-content">
+                        <p>关于《西游记之大圣归来2》的上映计划，官方尚未发布确切日期，请关注追光动画的官方微博获取最新资讯。</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>有哪些知名的喜剧演员演绎过大圣？</summary>
+                    <div class="faq-content">
+                        <p>除了《欢乐喜剧人》中的参赛选手外，开心麻花、德云社以及众多相声小品演员都曾在春晚或晚会中演绎过孙悟空形象，各具特色。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8; color: #999;">
+                        本站专注于提供关于《欢乐喜剧人》与《西游记之大圣归来》相关的深度内容、资讯与互动社区。我们致力于连接经典动漫与现代喜剧文化，为用户提供最优质的信息服务。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">热门视频</a></li>
+                        <li><a href="#">演员介绍</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关栏目</h4>
+                    <ul>
+                        <li><a href="#">国漫推荐</a></li>
+                        <li><a href="#">综艺节目</a></li>
+                        <li><a href="#">幕后花絮</a></li>
+                        <li><a href="#">粉丝论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 欢乐喜剧人大圣归来专题站. All Rights Reserved. 本站内容仅供交流学习使用，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                      </html>
