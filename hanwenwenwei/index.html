@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩雯雯微博 - 关注韩雯雯的官方动态、个人简介、作品展示及粉丝互动指南。提供微博账号信息、微博内容分类浏览及粉丝社区资讯。">
+    <meta name="keywords" content="韩雯雯,韩雯雯微博,韩雯雯个人主页,韩雯雯简介,韩雯雯粉丝">
+    <title>韩雯雯微博-个人动态与粉丝互动平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e6162d; /* 微博红 */
+            --primary-hover: #c4122a;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #f5f5f5;
+            --bg-card: #ffffff;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span.more {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f0f2f5;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            padding: 60px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 20px rgba(230, 22, 45, 0.3);
+            overflow: hidden;
+            background-color: #ddd;
+        }
+
+        .avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .action-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: #fff0f3;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        /* Feed / Timeline */
+        .feed-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .feed-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .feed-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .feed-info span {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .feed-content {
+            font-size: 15px;
+            line-height: 1.75;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .feed-content p {
+            margin-bottom: 12px;
+        }
+
+        .feed-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .feed-images img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .feed-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 12px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .feed-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .feed-actions button:hover {
+            background-color: #f5f5f5;
+            color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        aside .widget {
+            background: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 12px;
+            background-color: #f0f2f5;
+            border-radius: 12px;
+            color: var(--text-secondary);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .user-info-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 14px;
+        }
+
+        .user-info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .user-info-list img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-info-list a {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .user-info-list .sub {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 0;
+            }
+            .search-box {
+                display: none;
+            }
+            nav ul {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                韩雯雯<span>微博</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">关注</a></li>
+                    <li><a href="#">视频</a></li>
+                    <li><a href="#">热搜</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索韩雯雯的内容...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="avatar-wrapper">
+                    <!-- 使用随机种子图片模拟头像 -->
+                    <img src="https://picsum.photos/seed/hanwenwen_avatar/200/200" alt="韩雯雯头像">
+                </div>
+                <h1>韩雯雯</h1>
+                <p>分享生活中的点滴，记录成长的足迹。欢迎来到我的个人主页。</p>
+                
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-num">1,024万</span>
+                        <span class="stat-label">粉丝</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">3,520</span>
+                        <span class="stat-label">微博</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">8,920</span>
+                        <span class="stat-label">获赞</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-primary">关注</a>
+                    <a href="#" class="btn btn-outline">私信</a>
+                    <a href="#" class="btn btn-outline">粉丝牌</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container main-grid">
+            <!-- Left Column: Feed -->
+            <div class="feed-column">
+                <div class="section-title">
+                    最新微博
+                    <span class="more"><a href="#">查看全部 ></a></span>
+                </div>
+
+                <!-- Post 1 -->
+                <article class="feed-card">
+                    <div class="feed-header">
+                        <img src="https://picsum.photos/seed/hanwenwen_avatar/100/100" alt="韩雯雯" class="feed-avatar">
+                        <div class="feed-info">
+                            <h3>韩雯雯</h3>
+                            <span>刚刚发布 · 北京</span>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <p>今天天气真好，适合出去走走！阳光洒在身上暖洋洋的，心情也跟着变好了。🌿☀️ #日常生活 #治愈系</p>
+                    </div>
+                    <div class="feed-images">
+                        <img src="https://picsum.photos/seed/hanwenwen_1/400/300" alt="微博配图1">
+                        <img src="https://picsum.photos/seed/hanwenwen_2/400/300" alt="微博配图2">
+                    </div>
+                    <div class="feed-footer">
+                        <div class="feed-actions">
+                            <button>👍 2.4w</button>
+                            <button>💬 856</button>
+                            <button>🔄 转发</button>
+                        </div>
+                        <div class="feed-actions">
+                            <button>...</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="feed-card">
+                    <div class="feed-header">
+                        <img src="https://picsum.photos/seed/hanwenwen_avatar/100/100" alt="韩雯雯" class="feed-avatar">
+                        <div class="feed-info">
+                            <h3>韩雯雯</h3>
+                            <span>2小时前</span>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <p>新剧杀青啦！感谢导演和剧组的伙伴们这段时间的辛苦付出。期待与大家见面！🎬✨ #新剧杀青 #感谢有你</p>
+                        <div class="feed-images">
+                            <img src="https://picsum.photos/seed/hanwenwen_3/600/400" alt="微博配图3">
+                        </div>
+                    </div>
+                    <div class="feed-footer">
+                        <div class="feed-actions">
+                            <button>👍 5.1w</button>
+                            <button>💬 1.2w</button>
+                            <button>🔄 转发</button>
+                        </div>
+                        <div class="feed-actions">
+                            <button>...</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="feed-card">
+                    <div class="feed-header">
+                        <img src="https://picsum.photos/seed/hanwenwen_avatar/100/100" alt="韩雯雯" class="feed-avatar">
+                        <div class="feed-info">
+                            <h3>韩雯雯</h3>
+                            <span>昨天</span>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <p>周末宅家看电影，重温经典。你们最近看了什么好电影吗？求推荐！🍿📚</p>
+                    </div>
+                    <div class="feed-footer">
+                        <div class="feed-actions">
+                            <button>👍 890</button>
+                            <button>💬 230</button>
+                            <button>🔄 转发</button>
+                        </div>
+                        <div class="feed-actions">
+                            <button>...</button>
+                        </div>
+                    </div>
+                </article>
+                
+                 <!-- Post 4 -->
+                 <article class="feed-card">
+                    <div class="feed-header">
+                        <img src="https://picsum.photos/seed/hanwenwen_avatar/100/100" alt="韩雯雯" class="feed-avatar">
+                        <div class="feed-info">
+                            <h3>韩雯雯</h3>
+                            <span>3天前</span>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <p>健身打卡第100天！坚持就是胜利，身材管理真的很重要。💪🥗 #健身 #自律</p>
+                        <div class="feed-images">
+                            <img src="https://picsum.photos/seed/hanwenwen_gym/400/400" alt="健身打卡">
+                        </div>
+                    </div>
+                    <div class="feed-footer">
+                        <div class="feed-actions">
+                            <button>👍 1.5w</button>
+                            <button>💬 400</button>
+                            <button>🔄 转发</button>
+                        </div>
+                        <div class="feed-actions">
+                            <button>...</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside>
+                <div class="widget">
+                    <div class="widget-title">热门话题</div>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">#韩雯雯新剧#</a>
+                        <a href="#" class="tag">#韩雯雯健身打卡#</a>
+                        <a href="#" class="tag">#周末去哪儿#</a>
+                        <a href="#" class="tag">#影视推荐#</a>
+                        <a href="#" class="tag">#明星日常#</a>
+                        <a href="#" class="tag">#治愈系风景#</a>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-title">粉丝推荐</div>
+                    <ul class="user-info-list">
+                        <li>
+                            <img src="https://picsum.photos/seed/fan1/50/50" alt="粉丝头像">
+                            <a href="#">超级玛丽</a>
+                            <span class="sub">1.2w 粉丝</span>
+                        </li>
+                        <li>
+                            <img src="https://picsum.photos/seed/fan2/50/50" alt="粉丝头像">
+                            <a href="#">雯雯的小迷妹</a>
+                            <span class="sub">5.6k 粉丝</span>
+                        </li>
+                        <li>
+                            <img src="https://picsum.photos/seed/fan3/50/50" alt="粉丝头像">
+                            <a href="#">吃瓜群众</a>
+                            <span class="sub">890 粉丝</span>
+                        </li>
+                        <li>
+                            <img src="https://picsum.photos/seed/fan4/50/50" alt="粉丝头像">
+                            <a href="#">影视爱好者</a>
+                            <span class="sub">2.1w 粉丝</span>
+                        </li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <a href="#" style="font-size: 13px; color: var(--primary-color);">查看更多 ></a>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-title">关于博主</div>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">
+                        韩雯雯，知名演员/博主。这里会分享工作动态、生活趣事及粉丝互动。请文明发言，共同维护良好社区环境。
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">关于韩雯雯</a></li>
+                        <li><a href="#">经纪公司</a></li>
+                        <li><a href="#">商业合作</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>粉丝服务</h4>
+                    <ul>
+                        <li><a href="#">粉丝俱乐部</a></li>
+                        <li><a href="#">周边商城</a></li>
+                        <li><a href="#">公益活动</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注渠道</h4>
+                    <ul>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">抖音账号</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">微博首页</a></li>
+                        <li><a href="#">微博热搜</a></li>
+                        <li><a href="#">微博客服</a></li>
+                        <li><a href="#">微博安全中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 韩雯雯微博粉丝站. All Rights Reserved. 本页面为粉丝自发整理的非官方网站，非韩雯雯本人运营。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                  </html>
