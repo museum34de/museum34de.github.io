@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线小视频 - 热门短视频精选与创作指南</title>
+    <meta name="description" content="本站提供最新、最热的在线小视频内容聚合，涵盖生活记录、创意剪辑、知识科普及娱乐搞笑等多个领域。同时为您提供短视频拍摄技巧、剪辑软件推荐及创作避坑指南。">
+    <meta name="keywords" content="在线小视频,短视频,视频剪辑,短视频创作,热门视频">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #fe2c55;
+            --secondary-color: #25f4ee;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-main: #1f1f1f;
+            --text-sub: #8c8c8c;
+            --spacing-unit: 8px;
+            --border-radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+            margin-left: 16px;
+            max-width: 200px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #e6f7ff;
+            color: #1890ff;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 6px 12px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            flex: 1;
+            padding: 0 8px;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 420px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags span {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(254, 44, 85, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-bg-video {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 600px;
+            height: 300px;
+            background: #000;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-bg-video img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* Content Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #eee;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            backdrop-filter: blur(4px);
+            transition: background 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            background: var(--primary-color);
+        }
+
+        .card-info {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .ranking-list {
+            counter-reset: rank;
+        }
+
+        .ranking-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-num {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ddd;
+            width: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .ranking-item:nth-child(1) .rank-num { color: #ff4757; }
+        .ranking-item:nth-child(2) .rank-num { color: #ffa502; }
+        .ranking-item:nth-child(3) .rank-num { color: #2ed573; }
+
+        .rank-thumb {
+            width: 80px;
+            height: 60px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .rank-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rank-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .rank-info p {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .category-item {
+            background: var(--card-bg);
+            padding: 16px 8px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .category-item:hover {
+            border-color: var(--primary-color);
+            background: #fff0f3;
+        }
+
+        .cat-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .cat-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: #fff;
+            padding: 40px 0;
+            margin-bottom: 60px;
+            border-top: 1px solid #eee;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .guide-card {
+            padding: 24px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .guide-card h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .guide-card p {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+        }
+
+        .guide-link {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .guide-link::after {
+            content: '→';
+            margin-left: 4px;
+            transition: margin-left 0.2s;
+        }
+
+        .guide-link:hover::after {
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f1f1f;
+            color: #b0b0b0;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: auto;
+                padding: 60px 0;
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content {
+                margin-bottom: 30px;
+            }
+            .hero-bg-video {
+                position: relative;
+                width: 100%;
+                height: 250px;
+                right: auto;
+                transform: none;
+            }
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .search-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>●</span> 视界
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">热门推荐</a>
+                <a href="#">创意剪辑</a>
+                <a href="#">生活记录</a>
+                <a href="#">知识科普</a>
+                <a href="#">创作者社区</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索在线小视频、创作者或话题...">
+                <button type="button">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container" style="position: relative; z-index: 2; width: 100%; display: flex; align-items: center;">
+                <div class="hero-content">
+                    <h1>发现生活中的<br>无限精彩瞬间</h1>
+                    <p>汇聚全球热门在线小视频，从搞笑段子到硬核科普，从旅行Vlog到美食制作。随时随地，一键开启你的视听盛宴。</p>
+                    <div class="hero-tags">
+                        <span># 周末去哪儿</span>
+                        <span># 搞笑神回复</span>
+                        <span># 科技极客</span>
+                        <span># 美食探店</span>
+                    </div>
+                    <a href="#" class="cta-button">立即观看</a>
+                </div>
+            </div>
+            <div class="hero-bg-video">
+                <img src="https://picsum.photos/seed/video_hero/600/300" alt="Featured Video Thumbnail">
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container">
+            <div class="category-grid">
+                <div class="category-item">
+                    <span class="cat-icon">🎬</span>
+                    <div class="cat-name">影视解说</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🎮</span>
+                    <div class="cat-name">游戏实况</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🍳</span>
+                    <div class="cat-name">美食制作</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">✈️</span>
+                    <div class="cat-name">旅行风光</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">💪</span>
+                    <div class="cat-name">健身教程</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🛠️</span>
+                    <div class="cat-name">DIY手工</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <section class="container">
+            <div class="grid-layout">
+                <!-- Video Feed -->
+                <div class="main-feed">
+                    <div class="section-title">
+                        <span>热门推荐</span>
+                        <a href="#" style="font-size: 14px; color: var(--text-sub);">查看更多 ></a>
+                    </div>
+                    <div class="video-grid">
+                        <!-- Video Card 1 -->
+                        <article class="video-card">
+                            <div class="card-thumb">
+                                <img src="https://picsum.photos/seed/video1/400/225" alt="Video Thumbnail">
+                                <div class="play-icon">▶</div>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">城市边缘的隐藏美景，周末自驾游发现绝美日落</h3>
+                                <div class="card-meta">
+                                    <span>2.3万次播放</span>
+                                    <span>12-05</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Video Card 2 -->
+                        <article class="video-card">
+                            <div class="card-thumb">
+                                <img src="https://picsum.photos/seed/video2/400/225" alt="Video Thumbnail">
+                                <div class="play-icon">▶</div>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">3分钟学会制作完美的意式浓缩咖啡，小白必看</h3>
+                                <div class="card-meta">
+                                    <span>8,500次播放</span>
+                                    <span>12-04</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Video Card 3 -->
+                        <article class="video-card">
+                            <div class="card-thumb">
+                                <img src="https://picsum.photos/seed/video3/400/225" alt="Video Thumbnail">
+                                <div class="play-icon">▶</div>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">AI绘画到底有多强？实测Midjourney生成过程</h3>
+                                <div class="card-meta">
+                                    <span>15万次播放</span>
+                                    <span>12-03</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Video Card 4 -->
+                        <article class="video-card">
+                            <div class="card-thumb">
+                                <img src="https://picsum.photos/seed/video4/400/225" alt="Video Thumbnail">
+                                <div class="play-icon">▶</div>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">深夜食堂：用最简单的食材做一顿温暖的晚餐</h3>
+                                <div class="card-meta">
+                                    <span>5,200次播放</span>
+                                    <span>12-02</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside>
+                    <div class="sidebar-section">
+                        <div class="section-title" style="font-size: 20px; margin-bottom: 16px;">🔥 热门榜单</div>
+                        <div class="ranking-list">
+                            <div class="ranking-item">
+                                <div class="rank-num">1</div>
+                                <div class="rank-thumb">
+                                    <img src="https://picsum.photos/seed/rank1/80/60" alt="Rank 1">
+                                </div>
+                                <div class="rank-info">
+                                    <h4>挑战全网最复杂的魔方复原</h4>
+                                    <p>5分钟前</p>
+                                </div>
+                            </div>
+                            <div class="ranking-item">
+                                <div class="rank-num">2</div>
+                                <div class="rank-thumb">
+                                    <img src="https://picsum.photos/seed/rank2/80/60" alt="Rank 2">
+                                </div>
+                                <div class="rank-info">
+                                    <h4>猫咪第一次看到自己的倒影</h4>
+                                    <p>15分钟前</p>
+                                </div>
+                            </div>
+                            <div class="ranking-item">
+                                <div class="rank-num">3</div>
+                                <div class="rank-thumb">
+                                    <img src="https://picsum.photos/seed/rank3/80/60" alt="Rank 3">
+                                </div>
+                                <div class="rank-info">
+                                    <h4>这才是真正的硬核机械改造</h4>
+                                    <p>1小时前</p>
+                                </div>
+                            </div>
+                            <div class="ranking-item">
+                                <div class="rank-num">4</div>
+                                <div class="rank-thumb">
+                                    <img src="https://picsum.photos/seed/rank4/80/60" alt="Rank 4">
+                                </div>
+                                <div class="rank-info">
+                                    <h4>如何在30秒内搞定办公室便当</h4>
+                                    <p>2小时前</p>
+                                </div>
+                            </div>
+                            <div class="ranking-item">
+                                <div class="rank-num">5</div>
+                                <div class="rank-thumb">
+                                    <img src="https://picsum.photos/seed/rank5/80/60" alt="Rank 5">
+                                </div>
+                                <div class="rank-info">
+                                    <h4>沉浸式阅读：深夜书房时光</h4>
+                                    <p>3小时前</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-title" style="font-size: 20px; margin-bottom: 16px;">🏷️ 热门标签</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span class="badge"># 治愈系</span>
+                            <span class="badge"># 职场</span>
+                            <span class="badge"># 宠物</span>
+                            <span class="badge"># 历史</span>
+                            <span class="badge"># 搞笑</span>
+                            <span class="badge"># 科技</span>
+                            <span class="badge"># 舞蹈</span>
+                            <span class="badge"># 美妆</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Creator Guide Section -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-title">创作者指南</div>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h3>📹 拍摄技巧</h3>
+                        <p>掌握构图、光线与运镜的基础知识，让普通场景也能拍出电影感。学习如何利用自然光提升画面质感。</p>
+                        <a href="#" class="guide-link">查看拍摄教程</a>
+                    </div>
+                    <div class="guide-card">
+                        <h3>✂️ 剪辑入门</h3>
+                        <p>推荐主流剪辑软件的使用方法，从素材导入到特效添加，手把手教你制作吸引人的短视频内容。</p>
+                        <a href="#" class="guide-link">学习剪辑教程</a>
+                    </div>
+                    <div class="guide-card">
+                        <h3>📈 爆款逻辑</h3>
+                        <p>了解平台推荐算法机制，分析热门视频的选题方向与发布规律，提升内容曝光率与互动率。</p>
+                        <a href="#" class="guide-link">阅读运营指南</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="container" style="margin-bottom: 60px;">
+            <div class="section-title">常见问题</div>
+            <div style="display: grid; gap: 16px;">
+                <details style="background: white; padding: 16px; border-radius: 8px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-main);">如何上传我的在线小视频？</summary>
+                    <p style="margin-top: 12px; color: var(--text-sub); font-size: 14px;">请点击页面右上角的“发布”按钮，注册账号后即可上传MP4、MOV等格式文件，支持高清上传。</p>
+                </details>
+                <details style="background: white; padding: 16px; border-radius: 8px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-main);">视频上传失败怎么办？</summary>
+                    <p style="margin-top: 12px; color: var(--text-sub); font-size: 14px;">请检查网络连接，确认文件大小未超过限制，或尝试使用浏览器默认下载器重新下载视频源。</p>
+                </details>
+                <details style="background: white; padding: 16px; border-radius: 8px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-main);">如何获取播放量分成？</summary>
+                    <p style="margin-top: 12px; color: var(--text-sub); font-size: 14px;">当您的视频累计播放量达到一定门槛后，系统将自动激活收益功能，收益将按月结算。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 16px; display: inline-block;">
+                        <span>●</span> 视界
+                    </a>
+                    <p style="font-size: 14px; line-height: 1.8; color: #8c8c8c;">
+                        视界致力于为用户提供最优质、最丰富的在线小视频内容聚合服务。我们关注每一个精彩瞬间，致力于打造最懂你的视频社区。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容分类</h4>
+                    <ul>
+                        <li><a href="#">影视娱乐</a></li>
+                        <li><a href="#">生活记录</a></li>
+                        <li><a href="#">知识科普</a></li>
+                        <li><a href="#">游戏竞技</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">上传指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 视界在线小视频平台 版权所有
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
