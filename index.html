@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="梦幻诛仙天音加点攻略：详细分析天音寺加点方案、属性分配技巧、技能加点推荐及PVP与PVE实战搭配建议。">
+    <meta name="keywords" content="梦幻诛仙天音怎么加点,天音寺加点,梦幻诛仙加点攻略,天音寺技能加点">
+    <title>梦幻诛仙天音怎么加点-天音寺加点攻略与实战搭配指南</title>
+    <style>
+        :root {
+            --primary-color: #5d4e37;
+            --secondary-color: #8c7b62;
+            --accent-color: #d4a017;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            nav ul {
+                display: none; /* Simplified mobile nav */
+            }
+        }
+
+        /* Article Sections */
+        section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background-color: #f9f4ed;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-color);
+        }
+
+        /* Attribute Grid */
+        .attr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .attr-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .attr-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .attr-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .attr-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .attr-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-list {
+            list-style: none;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list a {
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #aaa;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Utility */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        
+        .btn:hover {
+            background-color: #c49310;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>✦</span> 梦幻诛仙攻略组
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">加点攻略</a></li>
+                    <li><a href="#">宠物搭配</a></li>
+                    <li><a href="#">装备推荐</a></li>
+                    <li><a href="#">PVP技巧</a></li>
+                    <li><a href="#">资料库</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>梦幻诛仙天音怎么加点</h1>
+            <p>天音寺作为《梦幻诛仙》中的核心辅助与治疗职业，加点方案直接决定了队伍的续航能力与生存能力。本文为您深度解析主流加点流派。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="content-grid">
+            <!-- Left Column: Main Content -->
+            <div class="main-column">
+                
+                <article>
+                    <h2>一、天音寺加点核心思路</h2>
+                    <p>天音寺的定位是<strong>强力辅助与群体治疗</strong>，拥有强大的回血技能（大梵般若、妙音经）和复活技能（金刚经）。因此，加点时必须优先保证<strong>气血上限</strong>和<strong>灵力属性</strong>，以确保在战斗中能够存活并施放关键技能。</p>
+                    
+                    <div class="highlight-box">
+                        <strong>核心原则：</strong> 天音是队伍的“盾”和“奶妈”，生存能力是输出的前提。不要为了追求攻击而牺牲过多的防御和气血。
+                    </div>
+
+                    <h3>1. 气血加点流（推荐主流）</h3>
+                    <p>这是目前最稳健的加点方式，适合绝大多数日常任务、副本及PK环境。</p>
+                    <ul>
+                        <li><strong>加点方案：</strong> 全体或 3体1耐。</li>
+                        <li><strong>优势：</strong> 拥有全游戏最高的气血成长之一，血量越厚，大梵般若的恢复量越高。高耐力还能提供可观的防御，防止被秒杀。</li>
+                        <li><strong>适用场景：</strong> 长线团战、难度副本、单人练级、PVP防守阵型。</li>
+                        <li><strong>特点：</strong> 起手稳，容错率高，是标准的天音配置。</li>
+                    </ul>
+
+                    <h3>2. 灵力加点流（强力治疗）</h3>
+                    <p>当队伍缺乏强力法术输出，或者面对高难度PVE副本时，增加灵力可以显著提升治疗效果。</p>
+                    <ul>
+                        <li><strong>加点方案：</strong> 全灵或 2体1灵1耐。</li>
+                        <li><strong>优势：</strong> 妙音经的回复效果与灵力挂钩，高灵力能瞬间拉起濒死队友。</li>
+                        <li><strong>劣势：</strong> 自身非常脆弱，容易被集火秒杀，需要队友提供强力保护。</li>
+                        <li><strong>适用场景：</strong> 特定高难副本（如高难度帮派任务）、竞技场速攻流（需配合高爆发）。</li>
+                    </ul>
+
+                    <h3>3. 敏捷加点流（控制流）</h3>
+                    <p>通过提升速度来抢在敌人行动前使用金刚经复活队友，或者控制对方的治疗单位。</p>
+                    <ul>
+                        <li><strong>加点方案：</strong> 2体1耐1敏。</li>
+                        <li><strong>优势：</strong> 抢速能力强，防止队友被对方先手秒杀。</li>
+                        <li><strong>劣势：</strong> 牺牲了部分血量和防御，生存压力较大。</li>
+                        <li><strong>适用场景：</strong> 高级PK（特别是控制流阵容）。</li>
+                    </ul>
+
+                    <h2>二、技能加点推荐</h2>
+                    <p>加点决定了属性，技能加点决定了功能性。天音的技能树非常庞大，建议优先加满以下核心技能：</p>
+                    <ol>
+                        <li><strong>金刚经（满）：</strong> 天音的保命神技，施放后获得高额气血和防御护盾，并在每回合恢复气血。这是天音生存的根本。</li>
+                        <li><strong>大梵般若（满）：</strong> 群体治疗技能，恢复范围最大。建议至少加到5级，保证续航。</li>
+                        <li><strong>妙音经（满）：</strong> 单体强力治疗，回复量受灵力影响。关键时刻救命技能。</li>
+                        <li><strong>问罪（满）：</strong> 强力单体法术攻击，附带破防效果。日常任务清怪必备。</li>
+                        <li><strong>韦陀献杵（满）：</strong> 单体物理攻击，带有封印效果。PVP中用于干扰对方输出或辅助单位。</li>
+                        <li><strong>金刚咒/往生咒（按需）：</strong> 金刚咒加防御，往生咒加气血。根据加点流派，属性点溢出的可以分配给这两个被动技能。</li>
+                    </ol>
+
+                    <h2>三、实战搭配建议</h2>
+                    <p>单纯的加点无法发挥天音的全部实力，必须结合装备和宝宝：</p>
+                    <ul>
+                        <li><strong>装备选择：</strong> 优先选择<strong>气血</strong>和<strong>灵力</strong>附加的装备。防御次之。宝石方面，推荐镶嵌<strong>血石</strong>和<strong>灵石</strong>。</li>
+                        <li><strong>宝宝选择：</strong> 天音通常携带<strong>高防/高血</strong>的辅助型宝宝（如龟丞相、画魂）或<strong>高攻</strong>的物理宝宝。辅助宝宝可以帮天音抗伤害，物理宝宝负责清怪。</li>
+                        <li><strong>法宝搭配：</strong> 防御类法宝（如金刚符）和气血类法宝（如金刚葫芦）是天音的首选。</li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside>
+                <div class="sidebar-card">
+                    <h3>加点方案速查表</h3>
+                    <ul class="guide-list">
+                        <li>
+                            <a href="#">日常任务流 <span class="tag">推荐</span></a>
+                        </li>
+                        <li>
+                            <a href="#">高难副本流 <span class="tag">攻略</span></a>
+                        </li>
+                        <li>
+                            <a href="#">竞技场速攻 <span class="tag">PVP</span></a>
+                        </li>
+                        <li>
+                            <a href="#">属性成长分析</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>天音寺属性详解</h3>
+                    <div class="attr-grid">
+                        <div class="attr-card">
+                            <span class="attr-icon">❤️</span>
+                            <span class="attr-name">气血</span>
+                            <span class="attr-desc">成长极高<br>核心属性</span>
+                        </div>
+                        <div class="attr-card">
+                            <span class="attr-icon">🛡️</span>
+                            <span class="attr-name">防御</span>
+                            <span class="attr-desc">成长中等<br>生存保障</span>
+                        </div>
+                        <div class="attr-card">
+                            <span class="attr-icon">✨</span>
+                            <span class="attr-name">灵力</span>
+                            <span class="attr-desc">成长中等<br>治疗上限</span>
+                        </div>
+                        <div class="attr-card">
+                            <span class="attr-icon">⚡</span>
+                            <span class="attr-name">速度</span>
+                            <span class="attr-desc">成长较低<br>需装备堆速</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>常见问题 (FAQ)</h3>
+                    <div class="highlight-box" style="margin-bottom: 0.5rem; padding: 0.8rem;">
+                        <strong>Q: 天音是加力量还是力量加技能伤害？</strong><br>
+                        <span style="font-size: 0.9rem; color: #555;">A: 天音主要依靠灵力加成技能伤害，单纯加力量收益极低。建议属性点全部分配给体、耐、灵。</span>
+                    </div>
+                    <div class="highlight-box" style="margin-bottom: 0; padding: 0.8rem;">
+                        <strong>Q: 首选加点是全血吗？</strong><br>
+                        <span style="font-size: 0.9rem; color: #555;">A: 对于平民玩家，全血（全体）是最省心、容错率最高的选择，不需要复杂的操作技巧。</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p>专注梦幻诛仙游戏攻略分享，提供最新的版本更新解读、职业搭配及装备打造指南。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">职业大全</a></li>
+                        <li><a href="#">宝宝图鉴</a></li>
+                        <li><a href="#">副本攻略</a></li>
+                        <li><a href="#">帮派建设</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>QQ交流群：123456789</li>
+                        <li>投稿邮箱：admin@mhzy.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 梦幻诛仙攻略组. All Rights Reserved. 本站内容仅供玩家交流参考，不代表官方立场。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
